@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div id="barchart_values" style="width: 1800px; height: 4000px;"></div>
+    <script>
+    google.charts.load("current", { packages: ["corechart"] })
+    google.charts.setOnLoadCallback(drawChart)
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["Имя", "Голоса", { role: "style" }],
+            ["genkururu", 67, "#656314"],
+            ["Eugenii", 66, "#9C8455"],
+            ["Никита", 58, "#057F23"],
+            ["mike", 55, "#6A9AD6"],
+            ["Oleg S", 48, "#D7F665"],
+            ["George", 46, "#6F7716"],
+            ["Pingvin", 43, "#F968FB"],
+            ["Olejah", 41, "#CF40ED"],
+            ["Егор 🪗", 31, "#370003"],
+            ["mark", 22, "#904017"],
+            ["АлексейРоманов-Плющев", 19, "#C8D519"],
+            ["Vlad", 18, "#AEF3F7"],
+            ["АлександрЛебедев", 14, "#073EE6"],
+            ["Greg", 12, "#A99E5B"],
+            ["andypáwłowsky", 12, "#AC3EA6"],
+            ["GeorgeAverin", 10, "#9331CD"],
+            ["Рома", 7, "#5BB11E"],
+            ["Muaddib", 6, "#745898"],
+            ["AlexBad", 6, "#D2021E"],
+            ["methmunk", 6, "#74EBBF"],
+            ["PavelMikheev", 5, "#EF0E5E"],
+            ["Pavel Tws", 5, "#153529"],
+            ["Pavel", 4, "#88F192"],
+            ["АртемНестеров", 4, "#5CAE33"],
+            ["Maxim", 4, "#B753AF"],
+            ["pavelmarland", 3, "#97E13E"],
+            ["ЕгорПетров", 3, "#8C4140"],
+            ["© •`\\\\•`", 2, "#653682"],
+            ["PavlechkoSmirchek", 2, "#23E5AF"],
+            ["Roman", 2, "#2FB393"],
+            ["ФилиппЭскин🥑🦖🎃", 2, "#88F26E"],
+            ["PavlikAlekseev", 2, "#B89ADA"],
+            ["ГлебаТучкин", 2, "#AFBD3A"],
+            ["АльбинаБайдина", 1, "#A17F52"],
+            ["devserj", 1, "#A82CF0"],
+            ["Гражданин Пятка", 1, "#D4F926"],
+            ["Lohmatiy", 1, "#3C2867"],
+            ["Chernenko", 1, "#DFC2CA"],
+            ["John", 1, "#6E2913"],
+            ["NikitaKogor", 1, "#A47E0E"],
+            ["Москвич", 1, "#C117E5"],
+            ["TeeGua", 1, "#D64BCA"],
+            ["AndrewSherstnev", 1, "#1E7F99"],
+            ["ГусьПупси", 1, "#936142"],
+            ["AntonBentFrame", 1, "#7A8D8F"],
+            ["ANTONSAMSHIL", 1, "#189F12"],
+            ["ДенисРешетников", 1, "#6E6A0A"],
+            ["ГрегориХаусетерун", 1, "#BDFCFE"],
+        ])
+
+        var view = new google.visualization.DataView(data)
+        view.setColumns([
+            0,
+            1,
+            { calc: "stringify", sourceColumn: 1, type: "string", role: "annotation" },
+            2,
+        ])
+
+        var options = {
+            title: "Рис. 1 Голос за первый вопрос",
+            width: 1800,
+            height: 4000,
+            bar: { groupWidth: "75%" },
+            legend: { position: "none" },
+        }
+        var chart = new google.visualization.BarChart(
+            document.getElementById("barchart_values"),
+        )
+        chart.draw(view, options)
+    }
+    </script>
+</head>
+
+</html>
